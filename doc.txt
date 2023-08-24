@@ -9,3 +9,10 @@ react-spinners : for loading spinners
 
 date-fns : Modern JavaScript date utility library
 date-fns provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.
+
+react-dropzone : Simple React hook to create a HTML5-compliant drag'n'drop zone for files. A simple ui for file uploads.
+
+base64:
+When binary data is decoded from binary64data, it is first split into groups of four characters. Each group of four characters is then converted into a 6-bit Base64 digit. The four Base64 digits are then concatenated together to form a single block of 24 bits. The block of 24 bits is then decoded into its original binary form.
+Binary64data is a convenient way to transmit binary data over a network because it can be easily encoded and decoded. It is also a secure way to transmit binary data because it cannot be easily read by humans.
+

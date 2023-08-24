@@ -5,4 +5,7 @@ zustand : for state management
 swr : for data fetching
  SWR is a strategy to first return the data from cache (stale), then send the fetch request (revalidate), and finally come with the up-to-date data.
 
- 
+react-spinners : for loading spinners
+
+date-fns : Modern JavaScript date utility library
+date-fns provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.

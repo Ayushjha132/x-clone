@@ -14,7 +14,7 @@ interface SidebarItemProps {
 
 export const SidebarItem: React.FC<SidebarItemProps> = ({ label, href, icon: Icon, onClick, auth }) => {
     const loginModal = useLoginModal();
-    // @ts-ignore
+
     const { data : currentUser} = useCurrentUser();
     const router = useRouter();
     const handleClick = useCallback(() => {

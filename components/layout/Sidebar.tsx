@@ -24,7 +24,7 @@ const Sidebar = () => {
     },
     {
       label: 'Profile',
-      href: '/users/123', // TODO: fetch users
+      href: `/users/${currentUser?.id}`,
       icon: FaUser,
       auth: true
     }

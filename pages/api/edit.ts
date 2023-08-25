@@ -1,6 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import serverAuth from "@/lib/serverAuth";
 import prisma from "@/lib/prismadb";
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "PATCH") {

@@ -22,21 +22,52 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if(!post){
             throw new Error("Invalid ID");
         }
+        // @ts-ignore
         let updatedLikedIds = [...(post.likedIds || [])];
 
         if(req.method === "POST"){
             updatedLikedIds.push(currentUser.id);
+
+            try{
+                const post = await prisma.post.findUnique({
+                    where: {
+                        id: postId
+                    }
+                });
+
+                if(post?.userId){
+                    await prisma.notification.create({
+                        data: {
+                            body: "Someone liked your post",
+                            userId: post.userId
+                        }
+                    });
+
+                    await prisma.user.update({
+                        where: {
+                            id: post.userId
+                        },
+                        data: {
+                            hasNotification: true
+                        }
+                    })
+                }
+            }catch (error){
+                console.log(error);
+            }
         }
 
         if(req.method === "DELETE"){
             updatedLikedIds = updatedLikedIds.filter((likedId) => likedId !== currentUser.id);
         }
 
+
         const updatedPost = await prisma.post.update({
             where: {
                 id: postId
             },
             data: {
+                // @ts-ignore
                 likedIds: updatedLikedIds
             }
         });

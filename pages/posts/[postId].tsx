@@ -4,6 +4,7 @@ import {ClipLoader} from "react-spinners";
 import {Header} from "@/components/Header";
 import PostItem from "@/components/posts/Postitem";
 import Form from "@/components/Form";
+import CommentFeed from "@/components/posts/CommentFeed";
 
 const PostView = () => {
     const router = useRouter();
@@ -24,6 +25,7 @@ const PostView = () => {
            <Header label="Post" showBackArrow />
             <PostItem data={fetchedPost} />
             <Form postId={postId as string} isComment placeholder="Post your reply!" />
+            <CommentFeed comments={fetchedPost?.comments} />
         </>
     )
 }

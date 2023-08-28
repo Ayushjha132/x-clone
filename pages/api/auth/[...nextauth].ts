@@ -49,6 +49,7 @@
 //     },
 //     secret: process.env.NEXTAUTH_SECRET
 // });
+// export default NextAuth(authOptions);
 
 import bcrypt from "bcrypt"
 import NextAuth, { AuthOptions } from "next-auth"

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import fetcher from "@/lib/fetcher";
+import fetcher from "@/libs/fetcher";
 
 const usePost = (postId: string) => {
     const url = postId ? `api/posts/${postId}` : null;

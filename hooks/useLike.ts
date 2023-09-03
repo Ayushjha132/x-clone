@@ -5,7 +5,6 @@ import useLoginModal from "@/hooks/useLoginModal";
 import {useCallback, useMemo} from "react";
 import axios from "axios";
 import {toast} from "react-hot-toast";
-import {mutate} from "swr";
 
 const useLike = ({postId, userId}: {postId: string, userId?: string}) => {
     const { data : currentUser } = useCurrentUser();
@@ -13,11 +12,12 @@ const useLike = ({postId, userId}: {postId: string, userId?: string}) => {
     const { mutate: mutateFetchedPosts } = usePosts(userId);
 
     const loginModal = useLoginModal();
+
     const hasLiked = useMemo(() => {
         const list = fetchedPost?.likedIds || [];
 
         return list.includes(currentUser?.id);
-    }, [currentUser?.id, fetchedPost?.likedIds]);
+    }, [currentUser?.id, fetchedPost?.likedIds]);  // TODO: need to check here
 
     const toggleLike  = useCallback(async () => {
         if(!currentUser){

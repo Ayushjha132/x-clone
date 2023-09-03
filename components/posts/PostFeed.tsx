@@ -1,6 +1,7 @@
 import usePosts from '@/hooks/usePosts';
+import PostItem from '@/components/posts/PostItem';
 
-import PostItem from './PostItem';
+
 
 interface PostFeedProps {
   userId?: string;
